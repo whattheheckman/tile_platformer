@@ -13,6 +13,7 @@
  *       - "IsShooting" (Trigger) — fired by PlayerShoot via TriggerShootAnimation()
  *  3. Set the Ground Layer mask in the Inspector to match your tilemap/ground layer.
  *  4. Assign a groundCheck child Transform positioned just below the player's feet.
+ *  5. Assign jumpSound and doubleJumpSound (AudioClips) in the Inspector. Requires AudioSource (auto-added).
  *
  * ANIMATOR SETUP GUIDE:
  *  Idle   — default state; transition out when Speed > 0.1 (→ Run) or IsGrounded=false (→ Jump)
@@ -23,7 +24,7 @@
  *
  * USAGE:
  *  - Left/Right arrow keys (or A/D) to move.
- *  - Space to jump (only when grounded).
+ *  - Space to jump. Press again in the air for a double jump.
  *  - Shooting is triggered by PlayerShoot on this same GameObject.
  */
 
@@ -31,6 +32,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 7f;
@@ -38,16 +40,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.15f;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip doubleJumpSound;
 
     private Rigidbody2D rb;
     private Animator animator;
+    private AudioSource audioSource;
     private bool isGrounded;
     private float horizontalInput;
+    private int jumpsRemaining;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -56,8 +63,18 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (isGrounded)
+            jumpsRemaining = 2;
+
+        if (Input.GetButtonDown("Jump") && jumpsRemaining > 0)
+        {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
+            AudioClip sound = (jumpsRemaining == 2) ? jumpSound : doubleJumpSound;
+            if (sound != null) audioSource.PlayOneShot(sound);
+
+            jumpsRemaining--;
+        }
 
         // Flip sprite to face movement direction
         if (horizontalInput > 0)

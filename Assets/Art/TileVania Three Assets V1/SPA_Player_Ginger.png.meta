@@ -200,12 +200,12 @@ TextureImporter:
       name: SPA_Player_Ginger_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 195
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4
+        y: 196
+        width: 24
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -222,12 +222,12 @@ TextureImporter:
       name: SPA_Player_Ginger_1
       rect:
         serializedVersion: 2
-        x: 43
-        y: 195
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 44
+        y: 196
+        width: 24
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -244,12 +244,12 @@ TextureImporter:
       name: SPA_Player_Ginger_2
       rect:
         serializedVersion: 2
-        x: 79
-        y: 195
-        width: 26
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 80
+        y: 196
+        width: 24
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,12 +266,12 @@ TextureImporter:
       name: SPA_Player_Ginger_3
       rect:
         serializedVersion: 2
-        x: 117
-        y: 195
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 118
+        y: 196
+        width: 24
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -288,12 +288,12 @@ TextureImporter:
       name: SPA_Player_Ginger_4
       rect:
         serializedVersion: 2
-        x: 153
-        y: 195
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 154
+        y: 196
+        width: 24
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: SPA_Player_Ginger_5
       rect:
         serializedVersion: 2
-        x: 3
-        y: 157
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4
+        y: 158
+        width: 22
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -332,12 +332,12 @@ TextureImporter:
       name: SPA_Player_Ginger_6
       rect:
         serializedVersion: 2
-        x: 39
-        y: 157
-        width: 26
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 40
+        y: 158
+        width: 24
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -354,12 +354,12 @@ TextureImporter:
       name: SPA_Player_Ginger_7
       rect:
         serializedVersion: 2
-        x: 79
-        y: 157
-        width: 24
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 80
+        y: 158
+        width: 22
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -376,12 +376,12 @@ TextureImporter:
       name: SPA_Player_Ginger_8
       rect:
         serializedVersion: 2
-        x: 117
-        y: 157
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 118
+        y: 158
+        width: 22
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -398,12 +398,12 @@ TextureImporter:
       name: SPA_Player_Ginger_9
       rect:
         serializedVersion: 2
-        x: 7
-        y: 119
-        width: 24
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8
+        y: 120
+        width: 22
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -420,12 +420,12 @@ TextureImporter:
       name: SPA_Player_Ginger_10
       rect:
         serializedVersion: 2
-        x: 43
-        y: 121
-        width: 24
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 44
+        y: 122
+        width: 22
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -442,12 +442,12 @@ TextureImporter:
       name: SPA_Player_Ginger_11
       rect:
         serializedVersion: 2
-        x: 81
-        y: 121
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 82
+        y: 122
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -464,12 +464,12 @@ TextureImporter:
       name: SPA_Player_Ginger_12
       rect:
         serializedVersion: 2
-        x: 117
-        y: 121
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 118
+        y: 122
+        width: 20
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -486,12 +486,12 @@ TextureImporter:
       name: SPA_Player_Ginger_13
       rect:
         serializedVersion: 2
-        x: 155
-        y: 119
-        width: 26
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 156
+        y: 120
+        width: 24
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -508,12 +508,12 @@ TextureImporter:
       name: SPA_Player_Ginger_14
       rect:
         serializedVersion: 2
-        x: 5
-        y: 81
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6
+        y: 82
+        width: 22
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -530,12 +530,12 @@ TextureImporter:
       name: SPA_Player_Ginger_15
       rect:
         serializedVersion: 2
-        x: 43
-        y: 81
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 44
+        y: 82
+        width: 22
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -552,12 +552,12 @@ TextureImporter:
       name: SPA_Player_Ginger_16
       rect:
         serializedVersion: 2
-        x: 3
-        y: 47
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4
+        y: 48
+        width: 22
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -574,12 +574,12 @@ TextureImporter:
       name: SPA_Player_Ginger_17
       rect:
         serializedVersion: 2
-        x: 39
-        y: 47
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 40
+        y: 48
+        width: 24
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -596,12 +596,12 @@ TextureImporter:
       name: SPA_Player_Ginger_18
       rect:
         serializedVersion: 2
-        x: 87
-        y: 47
-        width: 22
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 88
+        y: 48
+        width: 20
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -618,12 +618,12 @@ TextureImporter:
       name: SPA_Player_Ginger_19
       rect:
         serializedVersion: 2
-        x: 3
-        y: 5
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4
+        y: 6
+        width: 22
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -640,12 +640,12 @@ TextureImporter:
       name: SPA_Player_Ginger_20
       rect:
         serializedVersion: 2
-        x: 43
-        y: 5
-        width: 22
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 44
+        y: 6
+        width: 20
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -662,12 +662,12 @@ TextureImporter:
       name: SPA_Player_Ginger_21
       rect:
         serializedVersion: 2
-        x: 81
-        y: 7
-        width: 22
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 82
+        y: 8
+        width: 20
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: -0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -684,12 +684,12 @@ TextureImporter:
       name: SPA_Player_Ginger_22
       rect:
         serializedVersion: 2
-        x: 119
-        y: 9
-        width: 22
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 120
+        y: 10
+        width: 20
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: -0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -706,12 +706,12 @@ TextureImporter:
       name: SPA_Player_Ginger_23
       rect:
         serializedVersion: 2
-        x: 157
-        y: 7
-        width: 22
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 158
+        y: 8
+        width: 20
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -728,12 +728,12 @@ TextureImporter:
       name: SPA_Player_Ginger_24
       rect:
         serializedVersion: 2
-        x: 193
-        y: 7
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 194
+        y: 8
+        width: 22
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: -0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -750,12 +750,12 @@ TextureImporter:
       name: SPA_Player_Ginger_25
       rect:
         serializedVersion: 2
-        x: 229
-        y: 7
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 230
+        y: 8
+        width: 24
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -772,12 +772,12 @@ TextureImporter:
       name: SPA_Player_Ginger_26
       rect:
         serializedVersion: 2
-        x: 267
-        y: 11
-        width: 26
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 268
+        y: 12
+        width: 24
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: -0.13}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -794,12 +794,12 @@ TextureImporter:
       name: SPA_Player_Ginger_27
       rect:
         serializedVersion: 2
-        x: 305
-        y: 11
-        width: 26
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 306
+        y: 12
+        width: 24
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: -0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -816,12 +816,12 @@ TextureImporter:
       name: SPA_Player_Ginger_28
       rect:
         serializedVersion: 2
-        x: 343
-        y: 9
-        width: 26
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 344
+        y: 10
+        width: 24
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: -0.06}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -838,7 +838,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 34c15372a0f0b0e4fbd19596ef9733ab
     internalID: 0
     vertices: []
     indices: 
@@ -846,7 +846,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       SPA_Player_Ginger_0: 2763027762189997257
       SPA_Player_Ginger_1: 9173507307230343747

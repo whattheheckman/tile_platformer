@@ -18,7 +18,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+//[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(AudioSource))]
 public class PlayerHealth : MonoBehaviour
 {
@@ -32,9 +32,17 @@ public class PlayerHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private AudioSource audioSource;
 
+
+    private void OnValidate()
+    {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (spriteRenderer == null )
+        {
+            Debug.LogError("Required SpriteRenderer component is missing from all children of " + gameObject.name + "!", gameObject);
+        }
+    }
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
     }

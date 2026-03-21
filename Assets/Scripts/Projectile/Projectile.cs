@@ -22,7 +22,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed = 12f;
-    [SerializeField] private float lifetime = 3f;
+    [SerializeField] private float lifetime = 1f;
     [SerializeField] private int damage = 1;
     [SerializeField] private LayerMask terrainLayer;
 
@@ -32,12 +32,11 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f;
     }
 
     private void Start()
     {
-        Destroy(gameObject, lifetime);
+        Destroy(this.gameObject, lifetime);
     }
 
     public void SetDirection(Vector2 dir)
@@ -60,14 +59,14 @@ public class Projectile : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
             return;
         }
 
         // Hit terrain
         if (((1 << other.gameObject.layer) & terrainLayer) != 0)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

@@ -7,6 +7,7 @@
  *  1. Attach to the same GameObject as PlayerController.
  *  2. Assign projectilePrefab (a prefab with the Projectile script) in the Inspector.
  *  3. Assign firePoint (a child Transform that marks where projectiles spawn).
+ *  4. Assign shootSound (AudioClip) in the Inspector. Requires AudioSource on this GameObject.
  *
  * USAGE:
  *  - Press Left Mouse Button or Z to fire.
@@ -20,13 +21,16 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate = 0.3f;
+    [SerializeField] private AudioClip shootSound;
 
     private PlayerController playerController;
+    private AudioSource audioSource;
     private float nextFireTime;
 
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -49,6 +53,8 @@ public class PlayerShoot : MonoBehaviour
         Projectile projScript = proj.GetComponent<Projectile>();
         if (projScript != null)
             projScript.SetDirection(new Vector2(direction, 0f));
+
+        if (shootSound != null) audioSource.PlayOneShot(shootSound);
 
         if (playerController != null)
             playerController.TriggerShootAnimation();

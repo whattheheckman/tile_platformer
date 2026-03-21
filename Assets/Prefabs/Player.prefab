@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 655550630168918859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.62, y: 0, z: 0}
+  m_LocalPosition: {x: 0.717, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7017907902976030251}
-  - component: {fileID: 9034366314793823172}
+  - component: {fileID: 6057277540847529976}
   - component: {fileID: 5898329736921238555}
   - component: {fileID: 1338839000244079841}
   - component: {fileID: 1600893786402333219}
@@ -104,7 +104,7 @@ Transform:
   - {fileID: 2545703050150021210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9034366314793823172
+--- !u!212 &6057277540847529976
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.24, y: 0.3}
+  m_Size: {x: 1.2, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -175,10 +175,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 1
-  m_GravityScale: 1
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -224,7 +224,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.74}
   m_Size: {x: 0.72281235, y: 1.5}
   m_Direction: 0
 --- !u!95 &1600893786402333219
@@ -262,12 +262,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 7
-  jumpForce: 5
+  jumpForce: 10
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 5525079377521184860}
   groundCheckRadius: 0.15
+  jumpSound: {fileID: 0}
 --- !u!114 &4679904329737685814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 3
   invincibilityDuration: 1.2
-  flashInterval: 7
+  flashInterval: 0.07
   hurtSound: {fileID: 0}
 --- !u!82 &202900893138201204
 AudioSource:
@@ -408,3 +409,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6159122317421829610, guid: c3e5268f3049f2b4cb566a7bf6dbdb4f, type: 3}
   firePoint: {fileID: 2545703050150021210}
   fireRate: 0.3
+  shootSound: {fileID: 0}
