@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Pickup
+    m_ConditionEvent: Collect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7108918992444451646}
@@ -59,7 +59,7 @@ AnimatorController:
   m_Name: CoinAnim
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Pickup
+  - m_Name: Collect
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0

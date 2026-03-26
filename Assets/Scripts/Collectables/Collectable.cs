@@ -9,15 +9,17 @@
  *     - Collider2D set as Trigger
  *     - Animator with states: "Idle" and "Collect" (set "Collect" trigger in transitions)
  *  2. Assign collectSound (FMOD EventReference) in the Inspector.
- *  3. Optionally assign collectParticles (a ParticleSystem) in the Inspector to play on collection.
+ *  3. Optionally assign collectParticles (a ParticleSystem) in the Inspector.
  *  4. The PlayerCollector script on the Player calls Collect() on contact.
+ *  5. In the "Collect" animation clip, add Animation Events:
+ *     - Call PlayCollectParticles() at the frame particles should burst
+ *     - Call DestroyCollectable() at the last frame to destroy the GameObject
  *
  * USAGE:
  *  - Collect() is called automatically by PlayerCollector when the player overlaps.
  *  - Override OnCollected() in a subclass to add score, etc.
  */
 
-using System.Collections;
 using FMODUnity;
 using UnityEngine;
 
@@ -27,7 +29,6 @@ public class Collectable : MonoBehaviour
 {
     [SerializeField] private EventReference collectSound;
     [SerializeField] private ParticleSystem collectParticles;
-    [SerializeField] private float destroyDelay = 0.5f; // time after collect anim before destroy
 
     private Animator animator;
     private bool collected;
@@ -48,22 +49,24 @@ public class Collectable : MonoBehaviour
         if (!collectSound.IsNull)
             RuntimeManager.PlayOneShot(collectSound, transform.position);
 
-        if (collectParticles != null)
-            collectParticles.Play();
-
         animator.SetTrigger("Collect");
 
         OnCollected();
-
-        StartCoroutine(DestroyAfterDelay());
     }
 
     // Override in subclass (e.g. Coin) to add score, etc.
     protected virtual void OnCollected() { }
 
-    private IEnumerator DestroyAfterDelay()
+    // Called by Animation Event on the "Collect" clip
+    public void PlayCollectParticles()
     {
-        yield return new WaitForSeconds(destroyDelay);
+        if (collectParticles != null)
+            collectParticles.Play();
+    }
+
+    // Called by Animation Event at the end of the "Collect" clip
+    public void DestroyCollectable()
+    {
         Destroy(gameObject);
     }
 }

@@ -17,8 +17,10 @@ public class PlayerCollector : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Collectable collectable = other.GetComponent<Collectable>();
-        if (collectable != null)
-            collectable.Collect();
+        if (other.gameObject.CompareTag("Collectable"))
+        {
+            other.GetComponent<Collectable>().Collect();
+
+        }
     }
 }

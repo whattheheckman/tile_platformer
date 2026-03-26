@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player Projectiles
   - Enemy Projectiles
+  - Collectable
   layers:
   - Default
   - TransparentFX
