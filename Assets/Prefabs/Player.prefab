@@ -298,11 +298,11 @@ MonoBehaviour:
   flashInterval: 0.1
   hurtSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1255061523
+      Data2: 1172786775
+      Data3: -207128430
+      Data4: -2106938348
+    Path: event:/playerHurt
 --- !u!114 &6534590661292007862
 MonoBehaviour:
   m_ObjectHideFlags: 0

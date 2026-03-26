@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         levelStartTime = Time.time;
+        if (coinText != null)
+            coinText.text = "Coins: 0";
     }
 
     public void RespawnPlayer()
