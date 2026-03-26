@@ -8,8 +8,7 @@
  *  1. Attach to a collectable GameObject with:
  *     - Collider2D set as Trigger
  *     - Animator with states: "Idle" and "Collect" (set "Collect" trigger in transitions)
- *     - AudioSource (auto-added)
- *  2. Assign collectSound (AudioClip) in the Inspector.
+ *  2. Assign collectSound (FMOD EventReference) in the Inspector.
  *  3. The PlayerCollector script on the Player calls Collect() on contact.
  *
  * USAGE:
@@ -18,24 +17,22 @@
  */
 
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(AudioSource))]
 public class Collectable : MonoBehaviour
 {
-    [SerializeField] private AudioClip collectSound;
+    [SerializeField] private EventReference collectSound;
     [SerializeField] private float destroyDelay = 0.5f; // time after collect anim before destroy
 
     private Animator animator;
-    private AudioSource audioSource;
     private bool collected;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     public void Collect()
@@ -46,8 +43,8 @@ public class Collectable : MonoBehaviour
         // Disable trigger so it can't be collected again
         GetComponent<Collider2D>().enabled = false;
 
-        if (collectSound != null)
-            audioSource.PlayOneShot(collectSound);
+        if (!collectSound.IsNull)
+            RuntimeManager.PlayOneShot(collectSound, transform.position);
 
         animator.SetTrigger("Collect");
 
