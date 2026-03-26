@@ -22,24 +22,24 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] private Vector2 pointA;
-    [SerializeField] private Vector2 pointB;
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
     [SerializeField] private float moveSpeed = 3f;
 
-    private Vector2 target;
+    private Transform target;
 
     private void Start()
     {
         // Start at pointA in world space (offset from starting position if desired)
-        transform.position = pointA;
+        transform.position = pointA.position;
         target = pointB;
     }
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, target.position.y), moveSpeed * Time.deltaTime);
 
-        if (Vector2.Distance(transform.position, target) < 0.05f)
+        if (Vector2.Distance(transform.position, target.position) < 0.05f)
             target = (target == pointA) ? pointB : pointA;
     }
 
@@ -59,8 +59,8 @@ public class MovingPlatform : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere(pointA, 0.15f);
-        Gizmos.DrawSphere(pointB, 0.15f);
-        Gizmos.DrawLine(pointA, pointB);
+        Gizmos.DrawSphere(pointA.position, 0.15f);
+        Gizmos.DrawSphere(pointB.position, 0.15f);
+        Gizmos.DrawLine(pointA.position, pointB.position);
     }
 }
