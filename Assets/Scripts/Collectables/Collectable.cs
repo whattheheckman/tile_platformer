@@ -9,7 +9,8 @@
  *     - Collider2D set as Trigger
  *     - Animator with states: "Idle" and "Collect" (set "Collect" trigger in transitions)
  *  2. Assign collectSound (FMOD EventReference) in the Inspector.
- *  3. The PlayerCollector script on the Player calls Collect() on contact.
+ *  3. Optionally assign collectParticles (a ParticleSystem) in the Inspector to play on collection.
+ *  4. The PlayerCollector script on the Player calls Collect() on contact.
  *
  * USAGE:
  *  - Collect() is called automatically by PlayerCollector when the player overlaps.
@@ -25,6 +26,7 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     [SerializeField] private EventReference collectSound;
+    [SerializeField] private ParticleSystem collectParticles;
     [SerializeField] private float destroyDelay = 0.5f; // time after collect anim before destroy
 
     private Animator animator;
@@ -45,6 +47,9 @@ public class Collectable : MonoBehaviour
 
         if (!collectSound.IsNull)
             RuntimeManager.PlayOneShot(collectSound, transform.position);
+
+        if (collectParticles != null)
+            collectParticles.Play();
 
         animator.SetTrigger("Collect");
 
