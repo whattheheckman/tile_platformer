@@ -3,9 +3,13 @@
 {5eda68a7-26cb-02bb-3763-e93bc26c4f7c} bank:/Master.strings
 {7c6ecce6-b384-4cbe-b336-90756654b943} bank:/Music
 {9b424d7a-986a-4590-8c62-96f2b1457c39} bus:/
+{52c81360-ba66-4f26-8e14-33cc07a1275f} bus:/Effects
+{31890b75-83fd-4e1b-827e-4407f6a19264} bus:/Music
 {2b5f1d46-e0c5-44fc-b3d3-f5e89237683a} bus:/Reverb
+{2465cb6f-e335-4bf1-9209-7a17cba20c7a} event:/collectibleCollect
+{1ebb9917-3e7f-4607-9550-f6dda7322481} event:/enemyDie
 {8d08e712-1937-42df-bfb1-8f5f3d56e004} event:/enemyHurt
-{4ba7e98f-9f2e-4574-9652-b409530a2114} event:/playerFire
+{7e31ca7f-a070-47ed-8640-ce7749a21f81} event:/playerDie
 {b53147ed-4e57-45e7-9278-a7f314ac6a82} event:/playerHurt
 {f20e8ca5-895b-400b-bfd9-6fc06bb4b212} event:/playerJump
 {e0cd490b-fd8d-4c9f-8434-16cf524da26d} event:/projectileFire
