@@ -269,18 +269,18 @@ MonoBehaviour:
   groundCheckRadius: 0.15
   jumpSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -233927515
+      Data2: 1074497883
+      Data3: -1066411585
+      Data4: 313701483
+    Path: event:/playerJump
   doubleJumpSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -233927515
+      Data2: 1074497883
+      Data3: -1066411585
+      Data4: 313701483
+    Path: event:/playerJump
 --- !u!114 &207156829850408363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,8 +332,8 @@ MonoBehaviour:
   fireRate: 0.3
   shootSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1269295503
+      Data2: 1165270830
+      Data3: 162812566
+      Data4: 337709651
+    Path: event:/playerFire

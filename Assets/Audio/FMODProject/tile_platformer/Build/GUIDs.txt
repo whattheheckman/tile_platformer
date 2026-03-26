@@ -1,0 +1,12 @@
+{fb246f3d-4232-49ea-b172-af9b9ab793da} bank:/Effects
+{c6c74873-57b0-4ef9-b12a-63c5339f49e4} bank:/Master
+{5eda68a7-26cb-02bb-3763-e93bc26c4f7c} bank:/Master.strings
+{7c6ecce6-b384-4cbe-b336-90756654b943} bank:/Music
+{9b424d7a-986a-4590-8c62-96f2b1457c39} bus:/
+{2b5f1d46-e0c5-44fc-b3d3-f5e89237683a} bus:/Reverb
+{8d08e712-1937-42df-bfb1-8f5f3d56e004} event:/enemyHurt
+{4ba7e98f-9f2e-4574-9652-b409530a2114} event:/playerFire
+{b53147ed-4e57-45e7-9278-a7f314ac6a82} event:/playerHurt
+{f20e8ca5-895b-400b-bfd9-6fc06bb4b212} event:/playerJump
+{e0cd490b-fd8d-4c9f-8434-16cf524da26d} event:/projectileFire
+{c69f4c52-fbff-4032-b765-08fb4c7361da} event:/projectileHit
