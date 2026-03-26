@@ -6,34 +6,37 @@
  *
  * SETUP:
  *  1. Attach to the same GameObject as your zone's Polygon/Box Collider2D (set as Trigger).
- *  2. Assign zoneMusic (AudioClip) — the music that plays in this zone.
- *  3. Assign the musicSource (an AudioSource in the scene designated for background music).
- *     Tip: put AudioSource on a persistent "MusicPlayer" GameObject and reference it here,
- *     or use a singleton MusicManager.
- *  4. Set crossfadeTime to 0 for instant switch, or > 0 for a simple volume fade.
+ *  2. Assign zoneMusic (FMOD EventReference) — the music event that plays in this zone.
+ *  3. Set crossfadeTime to 0 for instant switch, or > 0 for a volume crossfade.
  *
  * USAGE:
  *  - When the player enters this trigger, the music switches to zoneMusic.
- *  - Each separate area gets its own BoundaryAudioZone with a different clip.
+ *  - Each separate area gets its own BoundaryAudioZone with a different event.
+ *  - All zones share a single static FMOD EventInstance so only one track plays at a time.
  */
 
 using System.Collections;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class BoundaryAudioZone : MonoBehaviour
 {
-    [SerializeField] private AudioClip zoneMusic;
-    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private EventReference zoneMusic;
     [SerializeField] private float crossfadeTime = 0.5f;
+
+    // Shared across all zones so only one music instance is active at a time
+    private static EventInstance currentMusicInstance;
+    private static FMOD.GUID currentMusicGuid;
 
     private Coroutine crossfadeRoutine;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        if (musicSource == null || zoneMusic == null) return;
-        if (musicSource.clip == zoneMusic) return; // already playing
+        if (zoneMusic.IsNull) return;
+        if (currentMusicGuid.Equals(zoneMusic.Guid)) return; // already playing this event
 
         if (crossfadeRoutine != null)
             StopCoroutine(crossfadeRoutine);
@@ -41,38 +44,50 @@ public class BoundaryAudioZone : MonoBehaviour
         if (crossfadeTime > 0f)
             crossfadeRoutine = StartCoroutine(Crossfade());
         else
+            SwitchMusic();
+    }
+
+    private void SwitchMusic()
+    {
+        if (currentMusicInstance.isValid())
         {
-            musicSource.clip = zoneMusic;
-            musicSource.Play();
+            currentMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            currentMusicInstance.release();
         }
+
+        currentMusicGuid = zoneMusic.Guid;
+        currentMusicInstance = RuntimeManager.CreateInstance(zoneMusic);
+        currentMusicInstance.start();
     }
 
     private IEnumerator Crossfade()
     {
-        float startVolume = musicSource.volume;
+        EventInstance oldInstance = currentMusicInstance;
 
-        // Fade out
+        // Start new track at zero volume
+        currentMusicGuid = zoneMusic.Guid;
+        currentMusicInstance = RuntimeManager.CreateInstance(zoneMusic);
+        currentMusicInstance.setVolume(0f);
+        currentMusicInstance.start();
+
+        // Simultaneously fade old out and new in
         float t = 0f;
-        while (t < crossfadeTime / 2f)
+        while (t < crossfadeTime)
         {
             t += Time.unscaledDeltaTime;
-            musicSource.volume = Mathf.Lerp(startVolume, 0f, t / (crossfadeTime / 2f));
+            float progress = Mathf.Clamp01(t / crossfadeTime);
+            if (oldInstance.isValid())
+                oldInstance.setVolume(1f - progress);
+            currentMusicInstance.setVolume(progress);
             yield return null;
         }
 
-        // Swap clip
-        musicSource.clip = zoneMusic;
-        musicSource.Play();
+        currentMusicInstance.setVolume(1f);
 
-        // Fade in
-        t = 0f;
-        while (t < crossfadeTime / 2f)
+        if (oldInstance.isValid())
         {
-            t += Time.unscaledDeltaTime;
-            musicSource.volume = Mathf.Lerp(0f, startVolume, t / (crossfadeTime / 2f));
-            yield return null;
+            oldInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            oldInstance.release();
         }
-
-        musicSource.volume = startVolume;
     }
 }

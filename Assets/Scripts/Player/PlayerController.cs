@@ -13,7 +13,7 @@
  *       - "IsShooting" (Trigger) — fired by PlayerShoot via TriggerShootAnimation()
  *  3. Set the Ground Layer mask in the Inspector to match your tilemap/ground layer.
  *  4. Assign a groundCheck child Transform positioned just below the player's feet.
- *  5. Assign jumpSound and doubleJumpSound (AudioClips) in the Inspector. Requires AudioSource (auto-added).
+ *  5. Assign jumpSound and doubleJumpSound (FMOD EventReferences) in the Inspector.
  *
  * ANIMATOR SETUP GUIDE:
  *  Idle   — default state; transition out when Speed > 0.1 (→ Run) or IsGrounded=false (→ Jump)
@@ -28,24 +28,23 @@
  *  - Shooting is triggered by PlayerShoot on this same GameObject.
  */
 
+using FMODUnity;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float jumpForce = 14f;
+    [SerializeField] private float jumpForce = 10f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.15f;
-    [SerializeField] private AudioClip jumpSound;
-    [SerializeField] private AudioClip doubleJumpSound;
+    [SerializeField] private EventReference jumpSound;
+    [SerializeField] private EventReference doubleJumpSound;
 
     private Rigidbody2D rb;
     private Animator animator;
-    private AudioSource audioSource;
     private bool isGrounded;
     private float horizontalInput;
     private int jumpsRemaining;
@@ -54,7 +53,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -70,8 +68,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
 
-            AudioClip sound = (jumpsRemaining == 2) ? jumpSound : doubleJumpSound;
-            if (sound != null) audioSource.PlayOneShot(sound);
+            EventReference sound = (jumpsRemaining == 2) ? jumpSound : doubleJumpSound;
+            if (!sound.IsNull) RuntimeManager.PlayOneShot(sound, transform.position);
 
             jumpsRemaining--;
         }

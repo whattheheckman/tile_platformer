@@ -5,9 +5,8 @@
  *
  * SETUP:
  *  1. Attach to the same GameObject as PlayerController.
- *  2. Assign hurtSound (AudioClip) in the Inspector.
- *  3. Requires an AudioSource on this GameObject (auto-added).
- *  4. The GameManager.Instance.RespawnPlayer() is called on death — ensure GameManager is in the scene.
+ *  2. Assign hurtSound (FMOD EventReference) in the Inspector.
+ *  3. The GameManager.Instance.RespawnPlayer() is called on death — ensure GameManager is in the scene.
  *
  * USAGE:
  *  - Call TakeDamage(amount) from enemy/obstacle scripts to hurt the player.
@@ -16,21 +15,19 @@
  */
 
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 
-//[RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(AudioSource))]
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float invincibilityDuration = 1.2f;
     [SerializeField] private float flashInterval = 0.1f;
-    [SerializeField] private AudioClip hurtSound;
+    [SerializeField] private EventReference hurtSound;
 
     private int currentHealth;
     private bool isInvincible;
     private SpriteRenderer spriteRenderer;
-    private AudioSource audioSource;
 
 
     private void OnValidate()
@@ -43,7 +40,6 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
     }
 
@@ -53,8 +49,8 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= amount;
 
-        if (hurtSound != null)
-            audioSource.PlayOneShot(hurtSound);
+        if (!hurtSound.IsNull)
+            RuntimeManager.PlayOneShot(hurtSound, transform.position);
 
         if (currentHealth <= 0)
         {

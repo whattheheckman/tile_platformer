@@ -7,7 +7,8 @@
  *  1. Place a single GameManager GameObject in the scene.
  *  2. Assign playerSpawnPoint (a Transform marking where the player respawns).
  *  3. Assign the player GameObject reference.
- *  4. The PauseMenu and WinScreen scripts call into this.
+ *  4. Optionally assign coinText (a TextMeshProUGUI) to display the live coin count in the HUD.
+ *  5. The PauseMenu and WinScreen scripts call into this.
  *
  * USAGE:
  *  - GameManager.Instance.RespawnPlayer() — reload current level.
@@ -16,6 +17,7 @@
  *  - GameManager.Instance.GetElapsedTime() — query level timer.
  */
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Transform playerSpawnPoint;
     [SerializeField] private GameObject player;
+    [SerializeField] private TextMeshProUGUI coinText;
 
     private int coinCount;
     private float levelStartTime;
@@ -61,6 +64,8 @@ public class GameManager : MonoBehaviour
     public void AddCoin()
     {
         coinCount++;
+        if (coinText != null)
+            coinText.text = $"Coins: {coinCount}";
         Debug.Log($"Coins: {coinCount}");
     }
 

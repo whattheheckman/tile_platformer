@@ -5,28 +5,25 @@
  *
  * SETUP:
  *  1. Attach to the same GameObject as EnemyController.
- *  2. Assign hurtSound (AudioClip) in the Inspector.
- *  3. Requires AudioSource (auto-added).
+ *  2. Assign hurtSound (FMOD EventReference) in the Inspector.
  *
  * USAGE:
  *  - Call TakeDamage(amount) from projectile or other scripts.
  *  - Enemy is destroyed when health reaches 0.
  */
 
+using FMODUnity;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 2;
-    [SerializeField] private AudioClip hurtSound;
+    [SerializeField] private EventReference hurtSound;
 
     private int currentHealth;
-    private AudioSource audioSource;
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
     }
 
@@ -34,8 +31,8 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= amount;
 
-        if (hurtSound != null)
-            audioSource.PlayOneShot(hurtSound);
+        if (!hurtSound.IsNull)
+            RuntimeManager.PlayOneShot(hurtSound, transform.position);
 
         if (currentHealth <= 0)
             Destroy(gameObject);
